@@ -1,0 +1,22 @@
+{
+  "name": "email-providers-lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "serverless offline"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@serverless/typescript": "^3.38.0",
+    "@types/node": "^22.7.6",
+    "serverless-offline": "^9.3.1",
+    "serverless-plugin-typescript": "^2.1.5",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "serverless": "^3.39.0"
+  }
+}
