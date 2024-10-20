@@ -2,8 +2,7 @@ export class SendEmailUsecase {
   execute(provider: string, emailConfig: object): string {
     const emailProviders: any = {
       ses: 'SES',
-      nodemailer: 'Nodemailer',
-      sendgrid: 'Sendgrid',
+      smtp: 'SMTP',
     }
 
     const emailProvider = emailProviders[provider]

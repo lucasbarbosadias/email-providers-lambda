@@ -1,15 +1,36 @@
 'use strict'
+import { z } from 'zod'
+import { sendEmailSchema } from './schema'
 import { SendEmailUsecase } from '../../usecases/SendEmailUseCase'
 
 module.exports.sendEmail = async (event: any) => {
-  const body = JSON.parse(event.body)
-  const { provider, emailConfig } = body
+  try {
+    const body = JSON.parse(event.body)
+    const validatedData = sendEmailSchema.parse(body)
 
-  const sendEmailUsecase = new SendEmailUsecase()
-  const result = sendEmailUsecase.execute(provider, emailConfig)
+    const { provider, emailConfig } = validatedData
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify(result),
+    const sendEmailUsecase = new SendEmailUsecase()
+    const result = sendEmailUsecase.execute(provider, emailConfig)
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(result),
+    }
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          message: 'Invalid input',
+          errors: error.errors,
+        }),
+      }
+    }
+
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: 'Internal Server Error' }),
+    }
   }
 }
