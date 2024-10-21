@@ -1,8 +1,12 @@
+import { EmailProvider, EmailService, SesInput, SmtpInput } from '../domain/email'
+import { SESProvider } from '../providers/ses'
+import { SmtpProvider } from '../providers/smtp'
+
 export class SendEmailUsecase {
-  execute(provider: string, emailConfig: object): string {
-    const emailProviders: any = {
-      ses: 'SES',
-      smtp: 'SMTP',
+  async execute(provider: EmailProvider, emailConfig: SmtpInput | SesInput): Promise<void> {
+    const emailProviders: Record<EmailProvider, EmailService> = {
+      ses: new SESProvider(),
+      smtp: new SmtpProvider(),
     }
 
     const emailProvider = emailProviders[provider]
@@ -11,6 +15,6 @@ export class SendEmailUsecase {
       throw new Error('Invalid email provider')
     }
 
-    return emailProvider
+    await emailProvider.sendEmail(emailConfig)
   }
 }

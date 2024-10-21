@@ -2,6 +2,7 @@
 import { z } from 'zod'
 import { sendEmailSchema } from './schema'
 import { SendEmailUsecase } from '../../usecases/SendEmailUseCase'
+import { EmailProvider } from '../../domain/email'
 
 module.exports.sendEmail = async (event: any) => {
   try {
@@ -11,7 +12,7 @@ module.exports.sendEmail = async (event: any) => {
     const { provider, emailConfig } = validatedData
 
     const sendEmailUsecase = new SendEmailUsecase()
-    const result = sendEmailUsecase.execute(provider, emailConfig)
+    const result = sendEmailUsecase.execute((provider as EmailProvider), emailConfig)
 
     return {
       statusCode: 200,
