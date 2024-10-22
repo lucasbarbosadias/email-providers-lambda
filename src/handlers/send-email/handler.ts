@@ -16,7 +16,7 @@ module.exports.sendEmail = async (event: any) => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify(result),
+      body: JSON.stringify({ status: 'ok' }),
     }
   } catch (error) {
     if (error instanceof z.ZodError) {

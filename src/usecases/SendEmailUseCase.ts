@@ -15,6 +15,6 @@ export class SendEmailUsecase {
       throw new Error('Invalid email provider')
     }
 
-    await emailProvider.sendEmail(emailConfig)
+    return emailProvider.sendEmail(emailConfig)
   }
 }

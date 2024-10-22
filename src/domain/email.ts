@@ -18,8 +18,3 @@ export interface SmtpInput {
   username: string
   password: string
 }
-
-export enum SmtpPort {
-  SMTP = 25,
-  SMTPS = 465,
-}

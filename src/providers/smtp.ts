@@ -1,21 +1,18 @@
-import { createTransport } from 'nodemailer'
+import nodemailer from 'nodemailer'
 import type SMTPTransport from 'nodemailer/lib/smtp-transport'
-import { SmtpInput, SmtpPort } from '../domain/email'
+import { SmtpInput } from '../domain/email'
 
 export class SmtpProvider {
   async sendEmail(emailConfig: SmtpInput): Promise<void> {
     const { to, host, port, username, password } = emailConfig
 
-    const transporter = createTransport({
-      secure: port === SmtpPort.SMTPS,
+    const transporter = nodemailer.createTransport({
       host,
-      port: port,
+      port,
       auth: {
         user: username,
         pass: password,
-      },
-      connectionTimeout: 10000, //10seg
-      greetingTimeout: 30000, //30seg
+      }
     })
 
     return transporter
