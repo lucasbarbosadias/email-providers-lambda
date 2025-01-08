@@ -1,4 +1,5 @@
 import { EmailProvider, EmailService, SesInput, SmtpInput } from '../domain/email'
+import { SendGridProvider } from '../providers/sendgrid'
 import { SESProvider } from '../providers/ses'
 import { SmtpProvider } from '../providers/smtp'
 
@@ -7,6 +8,7 @@ export class SendEmailUsecase {
     const emailProviders: Record<EmailProvider, EmailService> = {
       ses: new SESProvider(),
       smtp: new SmtpProvider(),
+      sendgrid: new SendGridProvider(),
     }
 
     const emailProvider = emailProviders[provider]

@@ -12,10 +12,15 @@ const smtpEmailConfigSchema = z.object({
   to: z.string().email(),
 })
 
+const sendGridEmailConfigSchema = z.object({
+  to: z.string().email(),
+})
+
 export const sendEmailSchema = z.discriminatedUnion('provider', [
   z.object({ provider: z.literal('ses'), emailConfig: sesEmailConfigSchema }),
   z.object({
     provider: z.literal('smtp'),
     emailConfig: smtpEmailConfigSchema,
   }),
+  z.object({ provider: z.literal('sendgrid'), emailConfig: sendGridEmailConfigSchema }),
 ])
