@@ -17,19 +17,19 @@ export class SESProvider {
             Body: {
               Html: {
                 Charset: 'UTF-8',
-                Data: "Email content"
+                Data: 'Email content'
               },
               Text: {
                 Charset: 'UTF-8',
-                Data: "Email content"
+                Data: 'Email content'
               },
             },
             Subject: {
               Charset: 'UTF-8',
-              Data: "Email subject"
+              Data: 'Email subject'
             },
           },
-          Source: "email@sender.com"
+          Source: 'email@sender.com'
         }),
       )
       .then(data => {

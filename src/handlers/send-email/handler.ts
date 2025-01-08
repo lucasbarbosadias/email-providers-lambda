@@ -12,7 +12,7 @@ module.exports.sendEmail = async (event: any) => {
     const { provider, emailConfig } = validatedData
 
     const sendEmailUsecase = new SendEmailUsecase()
-    const result = sendEmailUsecase.execute((provider as EmailProvider), emailConfig)
+    await sendEmailUsecase.execute((provider as EmailProvider), emailConfig)
 
     return {
       statusCode: 200,
