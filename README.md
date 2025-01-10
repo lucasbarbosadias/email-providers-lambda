@@ -19,6 +19,53 @@ Each provider has an example implementation included in the code.
 - **Scalability:** Deployed as an AWS Lambda function to leverage serverless architecture.
 - **TypeScript:** Ensures type safety and better development experience.
 
+## cURL Examples
+You can test the email sending functionality locally using the following cURL commands. Replace the placeholder values (e.g., `username`, `password`, `to@example.com`) with your actual credentials and recipient information.
+
+1. SMTP Provider
+
+```bash
+curl --location 'http://localhost:3000/dev/email' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "provider": "smtp",
+    "emailConfig": {
+        "host": "sandbox.smtp.mailtrap.io",
+        "port": 2525,
+        "username": "username",
+        "password": "password",
+        "to": "to@example.com"
+    }
+}'
+```
+2. AWS SES Provider
+
+```bash
+curl --location 'http://localhost:3000/dev/email' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "provider": "ses",
+    "emailConfig": {
+        "to": "to@example.com"
+    }
+}'
+```
+
+3. SendGrid Provider
+
+```bash
+curl --location 'http://localhost:3000/dev/email' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "provider": "sendgrid",
+    "emailConfig": {
+        "to": "to@example.com"
+    }
+}'
+```
+
 ## Result
+
+After sending a request, the email should arrive at the recipient's inbox. Below is an example of the email received:
 
 ![image](https://github.com/user-attachments/assets/6341ff27-74e2-4052-8958-ba00e118905c)
