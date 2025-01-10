@@ -22,7 +22,7 @@ Each provider has an example implementation included in the code.
 ## cURL Examples
 You can test the email sending functionality locally using the following cURL commands. Replace the placeholder values (e.g., `username`, `password`, `to@example.com`) with your actual credentials and recipient information.
 
-1. SMTP Provider
+### SMTP Provider
 
 ```bash
 curl --location 'http://localhost:3000/dev/email' \
@@ -38,7 +38,7 @@ curl --location 'http://localhost:3000/dev/email' \
     }
 }'
 ```
-2. AWS SES Provider
+### AWS SES Provider
 
 ```bash
 curl --location 'http://localhost:3000/dev/email' \
@@ -51,7 +51,7 @@ curl --location 'http://localhost:3000/dev/email' \
 }'
 ```
 
-3. SendGrid Provider
+### SendGrid Provider
 
 ```bash
 curl --location 'http://localhost:3000/dev/email' \
