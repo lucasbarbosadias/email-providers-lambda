@@ -7,14 +7,14 @@
 This project demonstrates a serverless application built with TypeScript and Node.js, designed to send emails using different email providers. The email provider is selected dynamically based on the input provided to the Lambda function. The supported providers include:
 
 - AWS SES
-- HTTP Provider (custom)
+- SMTP Provider (custom)
 - SendGrid
 
 Each provider has an example implementation included in the code.
 
 ## Features
 
-- Dynamic Email Provider Selection: Choose the email provider at runtime.
-- Modular Design: Easily add or extend providers.
-- Scalability: Deployed as an AWS Lambda function to leverage serverless architecture.
-- TypeScript: Ensures type safety and better development experience.
+- **Dynamic Email Provider Selection:** Choose the email provider at runtime.
+- **Modular Design:** Easily add or extend providers.
+- **Scalability:** Deployed as an AWS Lambda function to leverage serverless architecture.
+- **TypeScript:** Ensures type safety and better development experience.
