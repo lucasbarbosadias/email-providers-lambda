@@ -18,3 +18,7 @@ Each provider has an example implementation included in the code.
 - **Modular Design:** Easily add or extend providers.
 - **Scalability:** Deployed as an AWS Lambda function to leverage serverless architecture.
 - **TypeScript:** Ensures type safety and better development experience.
+
+## Result
+
+![image](https://github.com/user-attachments/assets/6341ff27-74e2-4052-8958-ba00e118905c)
