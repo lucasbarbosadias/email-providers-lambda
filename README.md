@@ -1,4 +1,4 @@
-# Email Providers Lambda
+# 📂 Email Providers Lambda
 
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/typescript-%233178C6.svg?style=for-the-badge&logo=typescript&logoColor=white)
@@ -12,14 +12,14 @@ This project demonstrates a serverless application built with TypeScript and Nod
 
 Each provider has an example implementation included in the code.
 
-## Features
+## 🛠️ Features
 
 - **Dynamic Email Provider Selection:** Choose the email provider at runtime.
 - **Modular Design:** Easily add or extend providers.
 - **Scalability:** Deployed as an AWS Lambda function to leverage serverless architecture.
 - **TypeScript:** Ensures type safety and better development experience.
 
-## cURL Examples
+## 🖥️ cURL Examples
 You can test the email sending functionality locally using the following cURL commands. Replace the placeholder values (e.g., `username`, `password`, `to@example.com`) with your actual credentials and recipient information.
 
 ### SMTP Provider
@@ -64,7 +64,7 @@ curl --location 'http://localhost:3000/dev/email' \
 }'
 ```
 
-## Result
+## 🚀 Result
 
 After sending a request, the email should arrive at the recipient's inbox. Below is an example of the email received:
 
